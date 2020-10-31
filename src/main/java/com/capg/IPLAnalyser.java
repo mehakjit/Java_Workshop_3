@@ -131,5 +131,14 @@ public class IPLAnalyser {
 		return sortedStrikeRateAndAverageList;
 	}
 	
+	public List<IPLBallingData> getBowlersWithMaxWicketsAndBestAverage() {
+		List<IPLBallingData> sortedWithMaxWicketsAndAverageList = IplBallingList.stream()
+				.filter(player -> player.avg != 0).sorted((player1, player2) -> Double
+						.compare(player1.wkts + (1 / player1.avg), player2.wkts + (1 / player2.avg)))
+				.collect(Collectors.toList());
+		Collections.reverse(sortedWithMaxWicketsAndAverageList);
+		return sortedWithMaxWicketsAndAverageList;
+	}
+	
 }
 
