@@ -100,6 +100,14 @@ public class IPLAnalyserTest {
 		List<IPLBallingData> listOfBowlersWithMaximumWicketsAndGreatAverage=iplAnalyser.getBowlersWithMaxWicketsAndBestAverage();
 		Assert.assertEquals("Imran Tahir",listOfBowlersWithMaximumWicketsAndGreatAverage.get(0).player);
 	}
+	
+	@Test
+	public void givenBattingAndBowlingData_whenSortedOnBestBattingAndBowlingAverage_ShouldReturnCorrectList() {
+		List<String> playersWithBestBattingAndBowlingAverage=iplAnalyser.getBestBattingAndBowlingAverage();
+		Assert.assertEquals("Andre Russell", playersWithBestBattingAndBowlingAverage.get(0));
+		Assert.assertEquals("Marcus Stoinis", playersWithBestBattingAndBowlingAverage.get(1));
+	}
+	
 }
 	
 
