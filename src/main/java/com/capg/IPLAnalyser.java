@@ -160,6 +160,7 @@ public class IPLAnalyser {
 		}
 		return bestBattingAndBowlingAverage;
 	}
+	
 	public List<String> getPlayerWithMostRunAndMostWicket() {
 		List<String> playerWithMostRunAndMostWickets = new ArrayList<>();
 
@@ -180,6 +181,7 @@ public class IPLAnalyser {
 		}
 		return playerWithMostRunAndMostWickets;
 	}
+	
 	public List<IPLBattingData> getPlayerWithMax100AndBestBattingAverage() {
 		int highestCenturies=IplBattingList.stream().map(player->player.getCentury()).max(Integer::compare).get();
 
@@ -191,6 +193,15 @@ public class IPLAnalyser {
 				.collect(Collectors.toList());
 		Collections.reverse(batmenWithMaxCenturyAndBestBattingAverage);
 		return batmenWithMaxCenturyAndBestBattingAverage;
+	}
+	
+	public List<IPLBattingData> getPlayerWithZeroCenturyOrHalfCenturyAndBestBattingAverage() {
+		List<IPLBattingData> batmenWithZeroCenturyButBestBattingAverage = IplBattingList.stream()
+				.filter(player->player.getCentury()==0 && player.getHalfCentury()==0)
+				.sorted((player1, player2) -> Double.compare(player1.getAverage(),player2.getAverage()))
+				.collect(Collectors.toList());
+		Collections.reverse(batmenWithZeroCenturyButBestBattingAverage);
+		return batmenWithZeroCenturyButBestBattingAverage;
 	}
 	
 }
