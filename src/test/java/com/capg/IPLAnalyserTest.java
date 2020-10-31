@@ -108,6 +108,13 @@ public class IPLAnalyserTest {
 		Assert.assertEquals("Marcus Stoinis", playersWithBestBattingAndBowlingAverage.get(1));
 	}
 	
+	@Test
+	public void givenBattingAndBowlingData_whenSortedOnMostRunsAndMostWicket_ShouldReturnCorrectList() {
+		List<String> playerWithMostRunAndMostWicket=iplAnalyser.getPlayerWithMostRunAndMostWicket();
+		Assert.assertEquals("Andre Russell", playerWithMostRunAndMostWicket.get(0));
+		Assert.assertEquals("Hardik Pandya", playerWithMostRunAndMostWicket.get(1));
+	}
+	
 }
 	
 
