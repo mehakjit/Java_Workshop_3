@@ -25,7 +25,7 @@ public class IPLBattingData {
 	private String highestScore;
 	
 	@CsvBindByName(column = "Avg")
-	private String average;
+	public String average;
 	
 	@CsvBindByName(column = "BF")
 	private int ballFaced;

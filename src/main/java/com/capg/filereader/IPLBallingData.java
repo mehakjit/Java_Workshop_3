@@ -3,96 +3,49 @@ package com.capg.filereader;
 import com.opencsv.bean.CsvBindByName;
 
 public class IPLBallingData {
-	@CsvBindByName(column = "POS")
-	private int position;
-	
-	@CsvBindByName(column = "PLAYER")
-	private String player;
-	
-	@CsvBindByName(column = "MAT")
-	private int noOfMatches;
-	
-	@CsvBindByName(column = "Inns")
-	private int innings;
-	
-	@CsvBindByName(column = "Ov")
-	private double overs;
-	
-	@CsvBindByName(column = "Runs")
-	private int runs;
-	
-	@CsvBindByName(column = "Wkts")
-	private int noOfWickets;
-	
-	@CsvBindByName(column = "BBI")
-	private int bbi;
-	
-	@CsvBindByName(column = "Avg")
-	private String average;
-	
-	@CsvBindByName(column = "Econ")
-	private double economy;
-	
-	@CsvBindByName(column = "SR")
-	private String strikeRate;
-	
-	@CsvBindByName(column = "4w")
-	private int fourWickets;
-	
-	@CsvBindByName(column = "5w")
-	private int fiveWickets;
-	
-	public int getPosition() {
-		return position;
-	}
+		@CsvBindByName(column = "POS")
+		public int pos;
 
-	public String getPlayer() {
-		return player;
-	}
+		@CsvBindByName(column = "PLAYER")
+		public String player;
 
-	public int getNoOfMatches() {
-		return noOfMatches;
-	}
+		@CsvBindByName(column = "Mat")
+		public int mat;
 
-	public int getInnings() {
-		return innings;
-	}
+		@CsvBindByName(column = "Inns")
+		public int inns;
 
-	public double getOvers() {
-		return overs;
-	}
+		@CsvBindByName(column = "Ov")
+		public double ov;
 
-	public int getRuns() {
-		return runs;
-	}
+		@CsvBindByName(column = "Runs")
+		public int runs;
 
-	public int getNoOfWickets() {
-		return noOfWickets;
-	}
+		@CsvBindByName(column = "Wkts")
+		public int wkts;
 
-	public int getBbi() {
-		return bbi;
-	}
+		@CsvBindByName(column = "BBI")
+		public int bbi;
 
-	public double getAverage() {
-		if(average.equals("-")) return 0.0;
-		return Double.parseDouble(average);
-	}
+		@CsvBindByName(column = "Avg")
+		public double avg;
 
-	public double getEconomy() {
-		return economy;
-	}
+		@CsvBindByName(column = "Econ")
+		public double econ;
 
-	public double getStrikeRate() {
-		if(strikeRate.equals("-")) return 0.0;
-		return Double.parseDouble(strikeRate);
-	}
+		@CsvBindByName(column = "SR")
+		public double sr;
 
-	public int getFourWickets() {
-		return fourWickets;
-	}
+		@CsvBindByName(column = "4w")
+		public int num4w;
 
-	public int getFiveWickets() {
-		return fiveWickets;
+		@CsvBindByName(column = "5w")
+		public int num5w;
+
+		@Override
+		public String toString() {
+			return "IplData{" + "Pos='" + pos + ", PLAYER='" + player + ", Mat='" + mat + ", INNS='" + inns + ",OV='" + ov
+					+ ", RUNS='" + runs + ", Wkts='" + wkts + ",BBI='" + bbi + ",Avg='" + avg + ",Econ='" + econ + ",sr='"
+					+ sr + ",4w='" + num4w + ",5w='" + num5w + '}';
 	}
 }

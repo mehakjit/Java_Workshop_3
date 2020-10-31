@@ -1,24 +1,32 @@
 package com.capg;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import com.capg.filereader.CsvFileLoader;
+import com.capg.filereader.IPLBallingData;
 import com.capg.filereader.IPLBattingData;
 import com.capg.filereader.IPLException;
 
 public class IPLAnalyser {
 	
 	public static List<IPLBattingData> IplBattingList;
+	private static List<IPLBallingData> IplBallingList;
 
-	public static void loadData(String csvFilePath,Class csvClass) throws IPLException {
+	public static void loadBattingData(String csvFilePath,Class csvClass) throws IPLException {
 		CsvFileLoader csvFileLoader = null;
 		IplBattingList = CsvFileLoader.loadCsvFile(csvFilePath, csvClass);
 	}
+	public static void loadBallingData(String csvFilePath,Class csvClass) throws IPLException {
+		CsvFileLoader csvFileLoader = null;
+		IplBallingList = CsvFileLoader.loadCsvFile(csvFilePath, csvClass);
+	}
+
 
 	public List<IPLBattingData> getTopBattingAverages() throws IPLException {
-		loadData("BattingData.csv", IPLBattingData.class);
+		loadBattingData("BattingData.csv", IPLBattingData.class);
 		List<IPLBattingData> sortedAvgList = IplBattingList.stream()
 				.sorted((player1, player2) -> Double.compare(player1.getAverage(), player2.getAverage()))
 				.collect(Collectors.toList());
@@ -85,5 +93,13 @@ public class IPLAnalyser {
 				.filter(player -> player.getAverage() == greatestAverage).collect(Collectors.toList());
 		return batmenBestStrikingRateWithGreatestAverage;
 	}
+	
+	public List<IPLBallingData> getTopBowlingAverages() throws IPLException {
+		loadBallingData("BallingData.csv", IPLBallingData.class);
+		List<IPLBallingData> sortedAvgBowlingList = IplBallingList.stream().filter(player->player.avg!=0)
+				.sorted((player1, player2) -> Double.compare(player1.avg, player2.avg)).collect(Collectors.toList());
+		return sortedAvgBowlingList;
+	}
+
 }
 
