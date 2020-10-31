@@ -54,6 +54,12 @@ public class IPLAnalyserTest {
 		List<IPLBattingData> listOfTopStrikeRate = iplAnalyser.getCricketerWithBestStrikingRateWith6sAnd4s();
 		Assert.assertEquals("Andre Russell", listOfTopStrikeRate.get(0).getPlayer());
 	}
+	
+	@Test
+	public void givenbattingData_ShouldReturn_CricketersWithGreatAverageAndBestStrikeRates(){
+		List<IPLBattingData> listOfTopAverageWithBestStrikERate = iplAnalyser.getGreatestAverageWithBestStrikingRate();
+		Assert.assertEquals("MS Dhoni", listOfTopAverageWithBestStrikERate.get(0).getPlayer());
+	}
 }
 	
 
