@@ -115,6 +115,11 @@ public class IPLAnalyserTest {
 		Assert.assertEquals("Hardik Pandya", playerWithMostRunAndMostWicket.get(1));
 	}
 	
+	@Test
+	public void givenBattingData_whenSortedWithWithMaxCenturiesAndBattingAverage_ShouldReturnCorrectList() {
+		List<IPLBattingData> playerWithMaxCenturyAndBestBattingAverage=iplAnalyser.getPlayerWithMax100AndBestBattingAverage();
+		Assert.assertEquals("David Warner",playerWithMaxCenturyAndBestBattingAverage.get(0).player);
+	}
 }
 	
 
