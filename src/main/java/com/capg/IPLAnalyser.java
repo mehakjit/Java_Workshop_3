@@ -180,6 +180,18 @@ public class IPLAnalyser {
 		}
 		return playerWithMostRunAndMostWickets;
 	}
+	public List<IPLBattingData> getPlayerWithMax100AndBestBattingAverage() {
+		int highestCenturies=IplBattingList.stream().map(player->player.getCentury()).max(Integer::compare).get();
+
+		double highestAverage=IplBattingList.stream().map(player->player.getAverage()).max(Double::compare).get();
+
+		List<IPLBattingData> batmenWithMaxCenturyAndBestBattingAverage = IplBattingList.stream()
+				.sorted((player1, player2) -> Double.compare(((player1.getCentury()/highestCenturies)+(player1.getAverage()/highestAverage)), 
+															((player2.getCentury()/highestCenturies)+(player2.getAverage()/highestAverage))))
+				.collect(Collectors.toList());
+		Collections.reverse(batmenWithMaxCenturyAndBestBattingAverage);
+		return batmenWithMaxCenturyAndBestBattingAverage;
+	}
 	
 }
 
