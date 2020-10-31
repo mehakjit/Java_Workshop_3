@@ -1,5 +1,6 @@
 package com.capg;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -138,6 +139,26 @@ public class IPLAnalyser {
 				.collect(Collectors.toList());
 		Collections.reverse(sortedWithMaxWicketsAndAverageList);
 		return sortedWithMaxWicketsAndAverageList;
+	}
+	
+	public List<String> getBestBattingAndBowlingAverage() {
+		List<String> bestBattingAndBowlingAverage = new ArrayList<>();
+
+		List<IPLBattingData> bestBattingAvg = IplBattingList.stream()
+				.sorted((player1, player2) -> Double.compare(player1.getAverage(), player2.getAverage())).collect(Collectors.toList());
+		Collections.reverse(bestBattingAvg);
+
+		List<IPLBallingData> bestBowlingAvg = IplBallingList.stream().filter(player -> player.avg != 0)
+				.sorted((player1, player2) -> Double.compare(player1.avg, player2.avg)).collect(Collectors.toList());
+
+		for (IPLBattingData batter : bestBattingAvg) {
+			for (IPLBallingData bowler : bestBowlingAvg) {
+				if (batter.player.equals(bowler.player)) {
+					bestBattingAndBowlingAverage.add(batter.player);
+				}
+			}
+		}
+		return bestBattingAndBowlingAverage;
 	}
 	
 }

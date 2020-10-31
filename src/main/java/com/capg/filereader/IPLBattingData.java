@@ -7,7 +7,7 @@ public class IPLBattingData {
 	private String position;
 	
 	@CsvBindByName(column = "PLAYER", required = true)
-	private String player;
+	public String player;
 	
 	@CsvBindByName(column = "MAT")
 	private int noOfMatches;
