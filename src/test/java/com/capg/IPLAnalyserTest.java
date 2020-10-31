@@ -118,7 +118,13 @@ public class IPLAnalyserTest {
 	@Test
 	public void givenBattingData_whenSortedWithWithMaxCenturiesAndBattingAverage_ShouldReturnCorrectList() {
 		List<IPLBattingData> playerWithMaxCenturyAndBestBattingAverage=iplAnalyser.getPlayerWithMax100AndBestBattingAverage();
-		Assert.assertEquals("David Warner",playerWithMaxCenturyAndBestBattingAverage.get(0).player);
+		Assert.assertEquals("David Warner ",playerWithMaxCenturyAndBestBattingAverage.get(0).player);
+	}
+	
+	@Test
+	public void givenBattingData_WhenSortedWithBestAverageAndZeroCentury_ShouldReturnCorrectList() {
+		List<IPLBattingData> playerWithZeroCenturyButBestBattingAverage=iplAnalyser.getPlayerWithZeroCenturyOrHalfCenturyAndBestBattingAverage();
+		Assert.assertEquals("Marcus Stoinis",playerWithZeroCenturyButBestBattingAverage.get(0).player);
 	}
 	
 }
