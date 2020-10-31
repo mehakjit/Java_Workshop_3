@@ -83,6 +83,11 @@ public class IPLAnalyserTest {
 		Assert.assertEquals("Shivam Dube",listOfTopBowlersWithBestEconomy.get(0).player);
 	}
 	
+	@Test
+	public void givenIplBowlingData_SortBowlingDataAccordingToBestEconomyWithMax4wAnd5w_ReturnSameList() {
+		List<IPLBallingData> listOfTopBowlersWithBestStrikeRateANdMax4w5w = iplAnalyser.getBowlersWithBestStrikeRateWithMax4wAnd5w();
+		Assert.assertEquals("Kagiso Rabada",listOfTopBowlersWithBestStrikeRateANdMax4w5w.get(0).player);
+	}
 }
 	
 
