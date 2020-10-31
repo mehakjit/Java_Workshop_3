@@ -68,14 +68,14 @@ public class IPLAnalyserTest {
 		Assert.assertEquals("Jagadeesha Suchith",listOfTopBowlingAverage.get(1).player);
 		Assert.assertEquals("Alzarri Joseph",listOfTopBowlingAverage.get(2).player);
 	}
-//	
-//	@Test
-//	public void givenIplBowlingData_SortBowlingDataAccordingToStrikeRate_ReturnSameList() {
-//		List<IPLBallingData> listOfTopBowlingStrikeRate = iplAnalyser.getTopBowlingStrikeRates();
-//		Assert.assertEquals("Alzarri Joseph",listOfTopBowlingStrikeRate.get(0).player);
-//		Assert.assertEquals("Ish Sodhi",listOfTopBowlingStrikeRate.get(1).player);
-//		Assert.assertEquals("Khaleel Ahmed",listOfTopBowlingStrikeRate.get(2).player);
-//	}
+	
+	@Test
+	public void givenIplBowlingData_SortBowlingDataAccordingToStrikeRate_ReturnSameList() {
+		List<IPLBallingData> listOfTopBowlingStrikeRate = iplAnalyser.getTopBowlingStrikeRates();
+		Assert.assertEquals("Alzarri Joseph",listOfTopBowlingStrikeRate.get(0).player);
+		Assert.assertEquals("Ish Sodhi",listOfTopBowlingStrikeRate.get(1).player);
+		Assert.assertEquals("Khaleel Ahmed",listOfTopBowlingStrikeRate.get(2).player);
+	}
 	
 	
 }
