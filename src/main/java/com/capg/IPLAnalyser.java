@@ -123,5 +123,13 @@ public class IPLAnalyser {
 		return sortedWithBestStrikeRateAndMax4wAnd5w;
 	}
 	
+	public List<IPLBallingData> getBowlersWithStrikeRateAndBestAverage() {
+		List<IPLBallingData> sortedStrikeRateAndAverageList = IplBallingList.stream()
+				.filter(player -> player.avg != 0 && player.sr != 0)
+				.sorted((player1, player2) -> Double.compare(player1.sr + player1.avg, player2.sr + player2.avg))
+				.collect(Collectors.toList());
+		return sortedStrikeRateAndAverageList;
+	}
+	
 }
 
