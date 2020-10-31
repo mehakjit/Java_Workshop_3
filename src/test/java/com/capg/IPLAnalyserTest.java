@@ -38,15 +38,21 @@ public class IPLAnalyserTest {
 	}
 	
 	@Test
-	public void givenIplDataCSVFileReturnsCricketerWithMax6s(){
+	public void givenbattingData_ShouldReturn_CricketerListWithMax6s(){
 		List<IPLBattingData> batmenWithMax6s = iplAnalyser.getTopBatmenWithMax6s();
 		Assert.assertEquals("Andre Russell", batmenWithMax6s.get(0).getPlayer());
 	}
 	
 	@Test
-	public void givenIplDataCSVFileReturnsCricketerWithMax4s(){
+	public void givenbattingData_ShouldReturn_CricketerListWithMax4s(){
 		List<IPLBattingData> batmenWithMax4s = iplAnalyser.getTopBatmenWithMax4s();
 		Assert.assertEquals("Shikhar Dhawan", batmenWithMax4s.get(0).getPlayer());
+	}
+	
+	@Test
+	public void givenbattingData_ShouldReturn_BestStrikeRatesWith6sAnd4s(){
+		List<IPLBattingData> listOfTopStrikeRate = iplAnalyser.getCricketerWithBestStrikingRateWith6sAnd4s();
+		Assert.assertEquals("Andre Russell", listOfTopStrikeRate.get(0).getPlayer());
 	}
 }
 	
