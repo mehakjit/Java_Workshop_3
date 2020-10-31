@@ -120,6 +120,7 @@ public class IPLAnalyserTest {
 		List<IPLBattingData> playerWithMaxCenturyAndBestBattingAverage=iplAnalyser.getPlayerWithMax100AndBestBattingAverage();
 		Assert.assertEquals("David Warner",playerWithMaxCenturyAndBestBattingAverage.get(0).player);
 	}
+	
 }
 	
 
