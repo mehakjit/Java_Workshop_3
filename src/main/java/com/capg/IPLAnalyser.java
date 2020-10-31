@@ -74,5 +74,16 @@ public class IPLAnalyser {
 				.filter(player -> player.getStrikeRate() == bestStrikeRate).collect(Collectors.toList());
 		return batmenBestStrikingRateWithGreatestAverage;
 	}
+
+	public List<IPLBattingData> getMaximumRunWithGreatestAverage() {
+		int maximumRun = IplBattingList.stream().map(player -> player.getRuns()).max(Integer::compare).get();
+		List<IPLBattingData> cricketerWithMaximumRun = IplBattingList.stream().filter(player -> player.getRuns() == maximumRun)
+				.collect(Collectors.toList());
+		double greatestAverage = cricketerWithMaximumRun.stream().map(player -> player.getAverage())
+				.max(Double::compare).get();
+		List<IPLBattingData> batmenBestStrikingRateWithGreatestAverage = cricketerWithMaximumRun.stream()
+				.filter(player -> player.getAverage() == greatestAverage).collect(Collectors.toList());
+		return batmenBestStrikingRateWithGreatestAverage;
+	}
 }
 
