@@ -107,6 +107,10 @@ public class IPLAnalyser {
 				.collect(Collectors.toList());
 		return sortedBowlingStrikingRateList;
 	}
+	public List<IPLBallingData> getTopBowlerWithBestEconomy() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
 
