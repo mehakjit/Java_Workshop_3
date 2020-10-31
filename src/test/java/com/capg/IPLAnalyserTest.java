@@ -11,12 +11,7 @@ import com.capg.filereader.*;
 
 public class IPLAnalyserTest {
 	
-	public static final String BATTING_DATA_FILE_PATH = "BattingData.csv";
-	public static final String BALLING_DATA_FILE_PATH = "BallingData.csv";
 	public IPLAnalyser iplAnalyser;
-	
-	public List<IPLBattingData> batsmenList = null;
-	public CsvFileLoader csvFileLoader = new CsvFileLoader();
 	
 	@Before
 	public void setUp() throws IPLException {
@@ -60,6 +55,29 @@ public class IPLAnalyserTest {
 		List<IPLBattingData> listOfTopAverageWithBestStrikERate = iplAnalyser.getGreatestAverageWithBestStrikingRate();
 		Assert.assertEquals("MS Dhoni", listOfTopAverageWithBestStrikERate.get(0).getPlayer());
 	}
+	
+	@Test
+	public void givenBattingData_ShouldReturn_CricketersWithMaximumRunAndBestAverages(){
+		List<IPLBattingData> listOfMaxRunAndGreatestAverage = iplAnalyser.getMaximumRunWithGreatestAverage();
+		Assert.assertEquals("David Warner ", listOfMaxRunAndGreatestAverage.get(0).getPlayer());
+	}
+	@Test
+	public void givenIplBowlingData_SortBowlingDataAccordingToAverage_ReturnSameList() throws IPLException {
+		List<IPLBallingData> listOfTopBowlingAverage = iplAnalyser. getTopBowlingAverages();
+		Assert.assertEquals("Anukul Roy",listOfTopBowlingAverage.get(0).player);
+		Assert.assertEquals("Jagadeesha Suchith",listOfTopBowlingAverage.get(1).player);
+		Assert.assertEquals("Alzarri Joseph",listOfTopBowlingAverage.get(2).player);
+	}
+//	
+//	@Test
+//	public void givenIplBowlingData_SortBowlingDataAccordingToStrikeRate_ReturnSameList() {
+//		List<IPLBallingData> listOfTopBowlingStrikeRate = iplAnalyser.getTopBowlingStrikeRates();
+//		Assert.assertEquals("Alzarri Joseph",listOfTopBowlingStrikeRate.get(0).player);
+//		Assert.assertEquals("Ish Sodhi",listOfTopBowlingStrikeRate.get(1).player);
+//		Assert.assertEquals("Khaleel Ahmed",listOfTopBowlingStrikeRate.get(2).player);
+//	}
+	
+	
 }
 	
 
