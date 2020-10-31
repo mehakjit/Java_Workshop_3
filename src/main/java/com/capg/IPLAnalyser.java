@@ -25,5 +25,13 @@ public class IPLAnalyser {
 		Collections.reverse(sortedAvgList);
 		return sortedAvgList;
 	}
+
+	public List<IPLBattingData> getTopStrikingRates() {
+		List<IPLBattingData> sortedStrikingRateList = IplBattingList.stream()
+				.sorted((player1, player2) -> Double.compare(player1.getStrikeRate(), player2.getStrikeRate()))
+				.collect(Collectors.toList());
+		Collections.reverse(sortedStrikingRateList);
+		return sortedStrikingRateList;
+	}
 	}
 

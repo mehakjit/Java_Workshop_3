@@ -30,6 +30,15 @@ public class IPLAnalyserTest {
 		Assert.assertEquals(69.2, topBattingAverage .get(1).getAverage(), 0.0);
 		Assert.assertEquals(56.66, topBattingAverage .get(2).getAverage(), 0.0);
 	}
+	
+	@Test
+	public void givenIplDataCSVFileReturnsTop3StrikeRates(){
+
+		List<IPLBattingData> topStrikeRate = iplAnalyser.getTopStrikingRates();
+		Assert.assertEquals(333.33, topStrikeRate.get(0).getStrikeRate(), 0.0);
+		Assert.assertEquals(204.81, topStrikeRate.get(1).getStrikeRate(), 0.0);
+		Assert.assertEquals(200.00, topStrikeRate.get(2).getStrikeRate(), 0.0);
+	}
 }
 	
 
