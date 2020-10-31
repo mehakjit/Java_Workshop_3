@@ -43,7 +43,11 @@ public class IPLAnalyserTest {
 		Assert.assertEquals("Andre Russell", batmenWithMax6s.get(0).getPlayer());
 	}
 	
-	
+	@Test
+	public void givenIplDataCSVFileReturnsCricketerWithMax4s(){
+		List<IPLBattingData> batmenWithMax4s = iplAnalyser.getTopBatmenWithMax4s();
+		Assert.assertEquals("Shikhar Dhawan", batmenWithMax4s.get(0).getPlayer());
+	}
 }
 	
 

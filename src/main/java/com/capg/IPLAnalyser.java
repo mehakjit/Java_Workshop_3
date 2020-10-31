@@ -49,5 +49,20 @@ public class IPLAnalyser {
 		Collections.reverse(batmenWithMax4s);
 		return batmenWithMax4s;
 	}
+
+	public List<IPLBattingData> getCricketerWithBestStrikingRateWith6sAnd4s() {
+			int max4sAnd6s = IplBattingList.stream().map(player -> (player.getNoOfFours() + player.getNoOfSixes())).max(Integer::compare)
+					.get();
+			List<IPLBattingData> batmenWithMax4sAnd6s = IplBattingList.stream()
+					.filter((player -> (player.getNoOfSixes() + player.getNoOfFours()) == max4sAnd6s)).collect(Collectors.toList());
+
+			double bestStrikingRate = batmenWithMax4sAnd6s.stream().map(player -> player.getStrikeRate()).max(Double::compare)
+					.get();
+
+			List<IPLBattingData> batmenBestStrikingRateWithMax4sAnd6s = batmenWithMax4sAnd6s.stream()
+					.filter(player -> player.getStrikeRate() == bestStrikingRate).collect(Collectors.toList());
+
+			return batmenBestStrikingRateWithMax4sAnd6s;
+		}
 	}
 
