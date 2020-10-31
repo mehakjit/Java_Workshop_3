@@ -160,6 +160,26 @@ public class IPLAnalyser {
 		}
 		return bestBattingAndBowlingAverage;
 	}
+	public List<String> getPlayerWithMostRunAndMostWicket() {
+		List<String> playerWithMostRunAndMostWickets = new ArrayList<>();
+
+		List<IPLBattingData> playerWithMostRun = IplBattingList.stream()
+				.sorted((player1, player2) -> Integer.compare(player1.getRuns(), player2.getRuns())).collect(Collectors.toList());
+		Collections.reverse(playerWithMostRun);
+
+		List<IPLBallingData> playerWithMostWicket = IplBallingList.stream()
+				.sorted((player1, player2) -> Double.compare(player1.wkts, player2.wkts)).collect(Collectors.toList());
+		Collections.reverse(playerWithMostWicket);
+
+		for (IPLBattingData batter : playerWithMostRun) {
+			for (IPLBallingData bowler : playerWithMostWicket) {
+				if (batter.player.equals(bowler.player)) {
+					playerWithMostRunAndMostWickets.add(batter.player);
+				}
+			}
+		}
+		return playerWithMostRunAndMostWickets;
+	}
 	
 }
 
